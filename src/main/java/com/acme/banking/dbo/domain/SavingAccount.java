@@ -1,13 +1,16 @@
-package com.acme.banking.dbo.domain;
+package main.java.com.acme.banking.dbo.domain;
 
 import java.util.UUID;
 
-public class SavingAccount implements Account {
+public class SavingAccount implements com.acme.banking.dbo.domain.Account {
     private UUID id;
     private Client client;
     private double amount;
 
     public SavingAccount(UUID id, Client client, double amount) {
+        if(id == null) throw new IllegalArgumentException();
+        if(client == null) throw new IllegalArgumentException();
+        if (Double.isInfinite(amount) || Double.isNaN(amount)) throw new IllegalArgumentException();
         this.id = id;
         this.client = client;
         this.amount = amount;

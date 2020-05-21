@@ -1,6 +1,6 @@
-package com.acme.banking.dbo;
+package test.java.com.acme.banking.dbo;
 
-import com.acme.banking.dbo.domain.Client;
+import main.java.com.acme.banking.dbo.domain.Client;
 import org.junit.Test;
 
 import java.util.UUID;
@@ -27,6 +27,48 @@ public class ClientTest {
                         equalTo(stubId),
                         notNullValue()
                 ));
+        //endregion
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldNotAllowEmptyNameWhenCreated(){
+        //region given
+        UUID stubId = UUID.randomUUID();
+        //endregion
+
+        //region when
+        Client sut = new Client(stubId, "");
+        //endregion
+
+        //region then
+
+        //endregion
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldNotAllowNullNameWhenCreated(){
+        //region given
+        UUID stubId = UUID.randomUUID();
+        //endregion
+
+        //region when
+        Client sut = new Client(stubId, null);
+        //endregion
+
+        //region then
+
+        //endregion
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldNotAllowNullIdWhenCreated(){
+        //region given
+
+        //endregion
+
+        //region when
+        Client sut = new Client(null, "dummy client name");
+        //endregion
+
+        //region then
+
         //endregion
     }
 }

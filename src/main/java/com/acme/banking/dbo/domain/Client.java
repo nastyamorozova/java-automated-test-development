@@ -1,4 +1,4 @@
-package com.acme.banking.dbo.domain;
+package main.java.com.acme.banking.dbo.domain;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,6 +11,7 @@ public class Client {
 
     public Client(UUID id, String name) {
         if (id == null) throw new IllegalArgumentException();
+        if (name == null|| "".equals(name)) throw new IllegalArgumentException("Client Name should not be empty");
 
         this.id = id;
         this.name = name;

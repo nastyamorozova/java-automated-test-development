@@ -7,7 +7,7 @@ import java.util.UUID;
 public class Client {
     private UUID id;
     private String name;
-    private Collection<UUID> accountIds = new ArrayList<>(); //TODO
+    private Collection<SavingAccount> accountIds = new ArrayList<>(); //TODO
 
     public Client(UUID id, String name) {
         if (id == null) throw new IllegalArgumentException();
@@ -16,7 +16,12 @@ public class Client {
         this.id = id;
         this.name = name;
     }
-
+ public void addSavingAccount (SavingAccount savingAccount){
+       accountIds.add(savingAccount);
+    }
+    public Collection<SavingAccount> savingAccounts (){
+        return accountIds;
+    }
     public UUID getId() {
         return id;
     }

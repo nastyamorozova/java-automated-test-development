@@ -4,10 +4,10 @@ import java.util.UUID;
 
 public class SavingAccount implements com.acme.banking.dbo.domain.Account {
     private UUID id;
-    private Client client;
+    private UUID client;
     private double amount;
 
-    public SavingAccount(UUID id, Client client, double amount) {
+    public SavingAccount(UUID id, UUID client, double amount) {
         if(id == null) throw new IllegalArgumentException();
         if(client == null) throw new IllegalArgumentException();
         if (Double.isInfinite(amount) || Double.isNaN(amount)) throw new IllegalArgumentException();
@@ -16,7 +16,7 @@ public class SavingAccount implements com.acme.banking.dbo.domain.Account {
         this.amount = amount;
     }
 
-    public Client getClient() {
+    public UUID getClient() {
         return client;
     }
 
@@ -31,6 +31,6 @@ public class SavingAccount implements com.acme.banking.dbo.domain.Account {
 
     @Override
     public UUID getClientId() {
-        return client.getId();
+        return client;
     }
 }

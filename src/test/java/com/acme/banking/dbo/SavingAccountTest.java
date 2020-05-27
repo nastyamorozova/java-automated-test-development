@@ -15,7 +15,7 @@ public class SavingAccountTest {
     @Before
     public void initSettings() {
         stubId = UUID.randomUUID();
-        dummyClient = new Client(stubId,"dummy client name");
+        dummyClient = new Client(stubId,"dummy client name",null);
 
     }
 
@@ -23,7 +23,7 @@ public class SavingAccountTest {
     @Test(expected = IllegalArgumentException.class)
     public void shouldNotAllowNullIdWhenCreated(){
 
-        SavingAccount sut = new SavingAccount(null, dummyClient,100);
+        SavingAccount sut = new SavingAccount(null, dummyClient.getId(),100);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -35,13 +35,13 @@ public class SavingAccountTest {
     @Test(expected = IllegalArgumentException.class)
     public void shouldNotAllowInfiniteAmountWhenCreated(){
 
-        SavingAccount sut = new SavingAccount(stubId, dummyClient,Double.POSITIVE_INFINITY);
+        SavingAccount sut = new SavingAccount(stubId, dummyClient.getId(),Double.POSITIVE_INFINITY);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldNotAllowNaNAmountWhenCreated(){
 
-        SavingAccount sut = new SavingAccount(stubId, dummyClient,Double.NaN);
+        SavingAccount sut = new SavingAccount(stubId, dummyClient.getId(),Double.NaN);
     }
 
 }

@@ -19,5 +19,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="org.assertj:assertj-core:3.3.0" level="project" />
+    <orderEntry type="library" name="org.mockito:mockito-all:1.10.19" level="project" />
   </component>
 </module>

@@ -4,6 +4,7 @@ import main.java.com.acme.banking.dbo.domain.Client;
 import main.java.com.acme.banking.dbo.domain.SavingAccount;
 import main.java.com.acme.banking.dbo.domain.builders.ClientBuilder;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -117,6 +118,7 @@ exception.expectMessage("Client Name should not be empty");
 */
 
     }
+   @Ignore
     @Test
     public void savingAccountShouldExistForClient(){
         for(SavingAccount savingAccount:testAccounts.values()){
